@@ -13,39 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/Nama', function () {
-    return ('Muhamad Sagas');
+Route::get('/', function () {
+    return view('welcome');
 });
 
-Route::get('/Kelas', function () {
-    return ('XI RPL');
+Route::get('/siswa', function () {
+    $arrSiswa = ["Risa Lestari","Rudi Hermawan","Bambang Kusumo","Lisa Permata"];
+    return view('smkbpi.siswa')->with('siswa', $arrSiswa);
 });
 
-Route::get('/Tempat Tinggal', function () {
-    return ('Dago Atas');
+Route::get('/guru', function () {
+    $arrGuru = ["Maya Fitriani, M.M","Prof. Silvia Nst, M.farm","Dr. Umar Agustinus","Dr. Syahrial, M.Kom"];
+    return view('smkbpi.guru')->with('guru', $arrGuru);
 });
 
-Route::get('/Umur', function () {
-    return ('/17'); 
+Route::get('/galery', function () {
+    return view('smkbpi.galery');
 });
 
-Route::get('/belajar', function () {
-    echo '<h1>Hello World</h1>';
-    echo '<p>Sedang belajar Laravel</p>';
-});
-
-Route::get('/siswa/smkbpi/rpl', function () {
-    echo '<h2 style="text-align: center">Welcome to 11 RPL</h2>';
-});
-
-Route::get('/siswa/{sagas}', function ($sagas) {
-    return "Tampilkan data siswa bernama $sagas"; 
-});
-
-Route::get('/stok_barang/{jenis}/{merek}', function ($jenis,$merek) {
-    return "Cek sisa stok untuk $jenis $merek"; 
-});
-
-Route::get('/profile', function () {
-    return view ('profile');
-});
